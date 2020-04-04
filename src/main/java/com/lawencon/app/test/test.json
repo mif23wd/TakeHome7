@@ -1,0 +1,10 @@
+[{
+	"univ" : {
+		"nama" : "Universitas Padjajaran"
+	},
+	"listMhs" : [{
+			"name" : "Cloud Strife"
+		},{
+			"name" : "Son Goku"
+	}]
+}]
