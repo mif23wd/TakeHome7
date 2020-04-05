@@ -8,4 +8,5 @@ import com.lawencon.app.model.Voucher;
 
 public interface VoucherRepo extends JpaRepository<Voucher, Long>{
 	public List<Voucher> findAllById(Long id);
+	public List<Voucher> findByNamaVoucher(String namaVoucher);
 }

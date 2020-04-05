@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lawencon.app.model.Jadwal;
 import com.lawencon.app.model.JenisKendaraan;
+import com.lawencon.app.model.Transportasi;
 import com.lawencon.app.model.User;
 import com.lawencon.app.model.Voucher;
 import com.lawencon.app.service.AppService;
@@ -22,7 +24,7 @@ public class MasterController extends BaseController {
 	@Autowired
 	AppService appservice;
 
-	@PostMapping("/master/jpa/tambahuser")
+	@PostMapping("/master/jpa/insertuser")
 	public ResponseEntity<?> insertUserJpa(@RequestHeader("Authorization") String auth, @RequestBody String content) {
 		try {
 			String[] userpass = authUser(auth);
@@ -61,7 +63,7 @@ public class MasterController extends BaseController {
 		}
 	}
 
-	@PostMapping("/master/jpa/tambahjk")
+	@PostMapping("/master/jpa/insertjk")
 	public ResponseEntity<?> insertJenisKendaraanJpa(@RequestHeader("Authorization") String auth,
 			@RequestBody String content) {
 		try {
@@ -105,7 +107,7 @@ public class MasterController extends BaseController {
 		}
 	}
 	
-	@PostMapping("/master/jpa/tambahvoucher")
+	@PostMapping("/master/jpa/insertvoucher")
 	public ResponseEntity<?> insertVoucherJpa(@RequestHeader("Authorization") String auth,
 			@RequestBody String content) {
 		try {
@@ -141,6 +143,94 @@ public class MasterController extends BaseController {
 			String[] userpass = authUser(auth);
 			Voucher v = new ObjectMapper().readValue(content, Voucher.class);
 			return new ResponseEntity<>(appservice.deleteVoucherJpa(userpass[0], userpass[1], v.getId()),
+					HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@PostMapping("/master/jpa/inserttransportasi")
+	public ResponseEntity<?> insertTransportasiJpa(@RequestHeader("Authorization") String auth,
+			@RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			Transportasi trans = new ObjectMapper().readValue(content, Transportasi.class);
+			return new ResponseEntity<>(appservice.insertTransportasiJpa(userpass[0], userpass[1], trans),
+					HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@PutMapping("/master/jpa/edittransportasi")
+	public ResponseEntity<?> editTransportasiJpa(@RequestHeader("Authorization") String auth,
+			@RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			Transportasi transportasi  = new ObjectMapper().readValue(content, Transportasi.class);
+			return new ResponseEntity<>(appservice.editTransportasiJpa(userpass[0], userpass[1], transportasi), HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@DeleteMapping("/master/jpa/deletetransportasi")
+	public ResponseEntity<?> deleteTransportasiJpa(@RequestHeader("Authorization") String auth,
+			@RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			Transportasi transportasi = new ObjectMapper().readValue(content, Transportasi.class);
+			return new ResponseEntity<>(appservice.deleteTransportasiJpa(userpass[0], userpass[1], transportasi.getId()),
+					HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@PostMapping("/master/jpa/insertjadwal")
+	public ResponseEntity<?> insertJadwalJpa(@RequestHeader("Authorization") String auth,
+			@RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			Jadwal j = new ObjectMapper().readValue(content, Jadwal.class);
+			return new ResponseEntity<>(appservice.insertJadwalJpa(userpass[0], userpass[1], j),
+					HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@PutMapping("/master/jpa/editjadwal")
+	public ResponseEntity<?> editJadwalJpa(@RequestHeader("Authorization") String auth,
+			@RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			Jadwal jadwal  = new ObjectMapper().readValue(content, Jadwal.class);
+			return new ResponseEntity<>(appservice.editJadwalJpa(userpass[0], userpass[1], jadwal), HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@DeleteMapping("/master/jpa/deletejadwal")
+	public ResponseEntity<?> deleteJadwalJpa(@RequestHeader("Authorization") String auth,
+			@RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			Jadwal jadwal = new ObjectMapper().readValue(content, Jadwal.class);
+			return new ResponseEntity<>(appservice.deleteJadwalJpa(userpass[0], userpass[1], jadwal.getId()),
 					HttpStatus.OK);
 		} catch (Exception e) {
 			// TODO: handle exception

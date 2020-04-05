@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,12 +18,23 @@ public class Tiket {
 	private String noTik;
 	private String namaPenumpang;
 	private int noBangku;
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "trans_id")
 	private Transportasi transportasi;
 	@ManyToOne
-	@JoinColumn(name = "trx_id")
+	@JoinColumn(name = "trx_id") 
 	private Transaksi transaksi;
+	@OneToOne
+	@JoinColumn(name = "jadwal_id")
+	private Jadwal jadwal;
+	
+	public Jadwal getJadwal() {
+		return jadwal;
+	}
+
+	public void setJadwal(Jadwal jadwal) {
+		this.jadwal = jadwal;
+	}
 
 	public Long getId() {
 		return id;

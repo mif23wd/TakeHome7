@@ -9,8 +9,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.UniqueElements;
-
 @Entity
 @Table(name = "tb_m_transportasi")
 public class Transportasi {
@@ -18,7 +16,6 @@ public class Transportasi {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotNull
-	@UniqueElements
 	private String noTransportasi;
 	@NotNull
 	private String namaLayanan;

@@ -1,1 +1,28 @@
-[]
+{
+	"transaksi" : {
+		"voucher" : {
+			"namaVoucher" : "#DIRUMAHAJA"
+		}
+	},
+	"listTiket" : [
+		{
+			"namaPenumpang" : "Cloud Strife",
+			"noBangku" : 3,
+			"transportasi" : {
+				"id" : 2
+			},
+			"jadwal" : {
+				"id" : 2
+			}
+		},{
+			"namaPenumpang" : "Solid Snake",
+			"noBangku" : 11,
+			"transportasi" : {
+				"id" : 3
+			},
+			"jadwal" : {
+				"id" : 1
+			}
+		}
+	]
+}

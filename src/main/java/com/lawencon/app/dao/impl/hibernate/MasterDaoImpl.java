@@ -5,6 +5,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import com.lawencon.app.dao.MasterDao;
+import com.lawencon.app.model.Jadwal;
 import com.lawencon.app.model.JenisKendaraan;
 import com.lawencon.app.model.Transportasi;
 import com.lawencon.app.model.User;
@@ -36,12 +37,6 @@ public class MasterDaoImpl extends HibernateRepo implements MasterDao{
 	public boolean validation(String username, String password) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
-	}
-
-	@Override
-	public String getName(String username, String password) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -81,9 +76,69 @@ public class MasterDaoImpl extends HibernateRepo implements MasterDao{
 	}
 
 	@Override
-	public void insertTransportasi(Transportasi transportasi) {
+	public void insertTransportasi(Transportasi transportasi) throws Exception{
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public boolean updateTransportasi(Transportasi transportasi) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteTransportasi(Long id) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void insertJadwal(Jadwal jadwal) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean updateJadwal(Jadwal jadwal) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteJadwal(Long id) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public User findByUsernameAndPassword(String username, String password) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public JenisKendaraan findByIdJenisKendaraan(Long id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Voucher findByNamaVoucher(String namaVoucher) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Transportasi findByIdTranspostasi(Long id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Jadwal findByIdJadwal(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

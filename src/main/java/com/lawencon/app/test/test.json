@@ -1,10 +1,8 @@
-[{
-	"univ" : {
-		"nama" : "Universitas Padjajaran"
-	},
-	"listMhs" : [{
-			"name" : "Cloud Strife"
-		},{
-			"name" : "Son Goku"
-	}]
-}]
+{
+	"noTransaksi" : "HJ349",
+	"namaLayanan" : "Paraya",
+	"harga" : 60000,
+	"jenisKendaraan" : {
+		"id" : 1
+	}
+}
