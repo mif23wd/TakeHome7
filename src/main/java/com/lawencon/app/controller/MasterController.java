@@ -238,4 +238,219 @@ public class MasterController extends BaseController {
 			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	@PostMapping("/master/hibernate/insertuser")
+	public ResponseEntity<?> insertUserHibernate(@RequestHeader("Authorization") String auth, @RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			User u = new ObjectMapper().readValue(content, User.class);
+			return new ResponseEntity<>(appservice.insertUserHibernate(userpass[0], userpass[1], u), HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@PutMapping("/master/hibernate/edituser")
+	public ResponseEntity<?> editUserHibernate(@RequestHeader("Authorization") String auth, @RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			User u = new ObjectMapper().readValue(content, User.class);
+			return new ResponseEntity<>(appservice.editUserHibernate(userpass[0], userpass[1], u), HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@DeleteMapping("/master/hibernate/deleteuser")
+	public ResponseEntity<?> deleteUserHibernate(@RequestHeader("Authorization") String auth, @RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			User u = new ObjectMapper().readValue(content, User.class);
+			return new ResponseEntity<>(appservice.deleteUserHibernate(userpass[0], userpass[1], u.getId()), HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@PostMapping("/master/hibernate/insertjk")
+	public ResponseEntity<?> insertJenisKendaraanHibernate(@RequestHeader("Authorization") String auth,
+			@RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			JenisKendaraan jk = new ObjectMapper().readValue(content, JenisKendaraan.class);
+			return new ResponseEntity<>(appservice.insertJenisKendaraanHibernate(userpass[0], userpass[1], jk),
+					HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@PutMapping("/master/hibernate/editjk")
+	public ResponseEntity<?> editJenisKendaraanHibernate(@RequestHeader("Authorization") String auth,
+			@RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			JenisKendaraan jk = new ObjectMapper().readValue(content, JenisKendaraan.class);
+			return new ResponseEntity<>(appservice.editJenisKendaraanHibernate(userpass[0], userpass[1], jk), HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@DeleteMapping("/master/hibernate/deletejk")
+	public ResponseEntity<?> deleteJenisKendaraanHibernate(@RequestHeader("Authorization") String auth,
+			@RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			JenisKendaraan jk = new ObjectMapper().readValue(content, JenisKendaraan.class);
+			return new ResponseEntity<>(appservice.deleteJenisKendaraanHibernate(userpass[0], userpass[1], jk.getId()),
+					HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@PostMapping("/master/hibernate/insertvoucher")
+	public ResponseEntity<?> insertVoucherHibernate(@RequestHeader("Authorization") String auth,
+			@RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			Voucher v = new ObjectMapper().readValue(content, Voucher.class);
+			return new ResponseEntity<>(appservice.insertVoucherHibernate(userpass[0], userpass[1], v),
+					HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@PutMapping("/master/hibernate/editvoucher")
+	public ResponseEntity<?> editVoucherHibernate(@RequestHeader("Authorization") String auth,
+			@RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			Voucher v = new ObjectMapper().readValue(content, Voucher.class);
+			return new ResponseEntity<>(appservice.editVoucherHibernate(userpass[0], userpass[1], v), HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@DeleteMapping("/master/hibernate/deletevoucher")
+	public ResponseEntity<?> deleteVoucherHibernate(@RequestHeader("Authorization") String auth,
+			@RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			Voucher v = new ObjectMapper().readValue(content, Voucher.class);
+			return new ResponseEntity<>(appservice.deleteVoucherHibernate(userpass[0], userpass[1], v.getId()),
+					HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@PostMapping("/master/hibernate/inserttransportasi")
+	public ResponseEntity<?> insertTransportasiHibernate(@RequestHeader("Authorization") String auth,
+			@RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			Transportasi trans = new ObjectMapper().readValue(content, Transportasi.class);
+			return new ResponseEntity<>(appservice.insertTransportasiHibernate(userpass[0], userpass[1], trans),
+					HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@PutMapping("/master/hibernate/edittransportasi")
+	public ResponseEntity<?> editTransportasiHibernate(@RequestHeader("Authorization") String auth,
+			@RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			Transportasi transportasi  = new ObjectMapper().readValue(content, Transportasi.class);
+			return new ResponseEntity<>(appservice.editTransportasiHibernate(userpass[0], userpass[1], transportasi), HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@DeleteMapping("/master/hibernate/deletetransportasi")
+	public ResponseEntity<?> deleteTransportasiHibernate(@RequestHeader("Authorization") String auth,
+			@RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			Transportasi transportasi = new ObjectMapper().readValue(content, Transportasi.class);
+			return new ResponseEntity<>(appservice.deleteTransportasiHibernate(userpass[0], userpass[1], transportasi.getId()),
+					HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@PostMapping("/master/hibernate/insertjadwal")
+	public ResponseEntity<?> insertJadwalHibernate(@RequestHeader("Authorization") String auth,
+			@RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			Jadwal j = new ObjectMapper().readValue(content, Jadwal.class);
+			return new ResponseEntity<>(appservice.insertJadwalHibernate(userpass[0], userpass[1], j),
+					HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@PutMapping("/master/hibernate/editjadwal")
+	public ResponseEntity<?> editJadwalHibernate(@RequestHeader("Authorization") String auth,
+			@RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			Jadwal jadwal  = new ObjectMapper().readValue(content, Jadwal.class);
+			return new ResponseEntity<>(appservice.editJadwalHibernate(userpass[0], userpass[1], jadwal), HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@DeleteMapping("/master/hibernate/deletejadwal")
+	public ResponseEntity<?> deleteJadwalHibernate(@RequestHeader("Authorization") String auth,
+			@RequestBody String content) {
+		try {
+			String[] userpass = authUser(auth);
+			Jadwal jadwal = new ObjectMapper().readValue(content, Jadwal.class);
+			return new ResponseEntity<>(appservice.deleteJadwalHibernate(userpass[0], userpass[1], jadwal.getId()),
+					HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
 }

@@ -35,4 +35,32 @@ public interface AppService {
 	 
 	 //transaksi
 	 public String insertAndCetakStrukJpa(String username, String password, TransaksiTiket transaksiTiket) throws Exception;
+	 
+	//user
+	 public String insertUserHibernate(String username, String password, User user) throws Exception;
+	 public String editUserHibernate(String username, String password, User user) throws Exception;
+	 public String deleteUserHibernate(String username, String password, Long id) throws Exception;
+	 
+	 //jeniskendaraan
+	 public String insertJenisKendaraanHibernate(String username, String password, JenisKendaraan jenisKendaraan) throws Exception;
+	 public String editJenisKendaraanHibernate(String username, String password, JenisKendaraan jenisKendaraan) throws Exception;
+	 public String deleteJenisKendaraanHibernate(String username, String password, Long Id) throws Exception;
+	 
+	 //voucher
+	 public String insertVoucherHibernate(String username, String password, Voucher voucher) throws Exception;
+	 public String editVoucherHibernate(String username, String password, Voucher voucher) throws Exception;
+	 public String deleteVoucherHibernate(String username, String password, Long id) throws Exception;
+	 
+	 //transportasi
+	 public String insertTransportasiHibernate(String username, String password, Transportasi transportasi) throws Exception;
+	 public String editTransportasiHibernate(String username, String password, Transportasi transportasi) throws Exception;
+	 public String deleteTransportasiHibernate(String username, String password, Long id) throws Exception;
+	 
+	 //jadwal
+	 public String insertJadwalHibernate(String username, String password, Jadwal jadwal) throws Exception;
+	 public String editJadwalHibernate(String username, String password, Jadwal jadwal) throws Exception;
+	 public String deleteJadwalHibernate(String username, String password, Long id) throws Exception;
+	 
+	 //transaksi
+	 public String insertAndCetakStrukHibernate(String username, String password, TransaksiTiket transaksiTiket) throws Exception;
 }

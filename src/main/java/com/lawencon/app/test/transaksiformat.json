@@ -12,7 +12,7 @@
 				"id" : 2
 			},
 			"jadwal" : {
-				"id" : 2
+				"id" : 8
 			}
 		},{
 			"namaPenumpang" : "Solid Snake",
@@ -22,6 +22,15 @@
 			},
 			"jadwal" : {
 				"id" : 1
+			}
+		},{
+			"namaPenumpang" : "Jin Kazama",
+			"noBangku" : 6,
+			"transportasi" : {
+				"id" : 1
+			},
+			"jadwal" : {
+				"id" : 5
 			}
 		}
 	]

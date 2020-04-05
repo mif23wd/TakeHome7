@@ -30,4 +30,17 @@ public class TransaksiController extends BaseController{
 			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	@PostMapping("/hibernate/belitiket")
+	ResponseEntity<?> transaksiHibernate(@RequestHeader("Authorization") String auth, @RequestBody String content){
+		try {
+			String[] userpass = authUser(auth);
+			TransaksiTiket tt = new ObjectMapper().readValue(content, TransaksiTiket.class);
+			return new ResponseEntity<>(appservice.insertAndCetakStrukHibernate(userpass[0], userpass[1], tt), HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return new ResponseEntity<>("ada yang salah", HttpStatus.BAD_REQUEST);
+		}
+	}
 }
