@@ -28,11 +28,11 @@ public class AppServiceImpl implements AppService {
 	@Autowired
 	@Qualifier("trx_jpa")
 	TransaksiDao trxjpa;
-	
+
 	@Autowired
 	@Qualifier("master_hibernate")
 	MasterDao masterhibernate;
-	
+
 	@Autowired
 	@Qualifier("trx_jpa")
 	TransaksiDao trxhibernate;
@@ -308,8 +308,8 @@ public class AppServiceImpl implements AppService {
 					tot += tr.getHarga();
 					trxdetail += "No. Kursi\t: " + val.getNoBangku() + "\nNama\t\t: " + val.getNamaPenumpang()
 							+ "\nPenyedia\t: " + tr.getNamaLayanan() + "\nKendaraan\t: " + jk1.getNamaKendaraan()
-							+ "\nJadwal\t\t: " + jd.getWaktu() + "\nHarga\t\t: Rp." + tr.getHarga()
-							+ "\n----------------------------------\n";
+							+ "\nTanggal\t\t: " + jd.getTanggal() + "\nWaktu\t\t: " + jd.getWaktu() + "\nHarga\t\t: Rp."
+							+ tr.getHarga() + "\n----------------------------------\n";
 					trxjpa.insertTiket(val);
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
@@ -472,7 +472,8 @@ public class AppServiceImpl implements AppService {
 	}
 
 	@Override
-	public String insertTransportasiHibernate(String username, String password, Transportasi transportasi) throws Exception {
+	public String insertTransportasiHibernate(String username, String password, Transportasi transportasi)
+			throws Exception {
 		// TODO Auto-generated method stub
 		String notif;
 		if (masterhibernate.validation(username, password)) {
@@ -489,7 +490,8 @@ public class AppServiceImpl implements AppService {
 	}
 
 	@Override
-	public String editTransportasiHibernate(String username, String password, Transportasi transportasi) throws Exception {
+	public String editTransportasiHibernate(String username, String password, Transportasi transportasi)
+			throws Exception {
 		// TODO Auto-generated method stub
 		String notif;
 		if (masterhibernate.validation(username, password)) {
@@ -601,9 +603,9 @@ public class AppServiceImpl implements AppService {
 					jk1 = masterhibernate.findByIdJenisKendaraan(tr.getJenisKendaraan().getId());
 					tot += tr.getHarga();
 					trxdetail += "No. Kursi\t: " + val.getNoBangku() + "\nNama\t\t: " + val.getNamaPenumpang()
-							+ "\nPenyedia\t: " + tr.getNamaLayanan() + "\nKendaraan\t: " + jk1.getNamaKendaraan()
-							+ "\nJadwal\t\t: " + jd.getWaktu() + "\nHarga\t\t: Rp." + tr.getHarga()
-							+ "\n----------------------------------\n";
+					+ "\nPenyedia\t: " + tr.getNamaLayanan() + "\nKendaraan\t: " + jk1.getNamaKendaraan()
+					+ "\nTanggal\t\t: " + jd.getTanggal() + "\nWaktu\t\t: " + jd.getWaktu() + "\nHarga\t\t: Rp."
+					+ tr.getHarga() + "\n----------------------------------\n";
 					trxhibernate.insertTiket(val);
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block

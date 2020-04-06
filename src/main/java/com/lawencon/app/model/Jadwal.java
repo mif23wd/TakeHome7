@@ -16,6 +16,7 @@ public class Jadwal {
 	private Long id;
 	private int noJadwal;
 	private String waktu;
+	private String tanggal;
 	@ManyToOne
 	@JoinColumn(name = "trans_id")
 	private Transportasi transportasi;
@@ -50,5 +51,13 @@ public class Jadwal {
 
 	public void setTransportasi(Transportasi transportasi) {
 		this.transportasi = transportasi;
+	}
+
+	public String getTanggal() {
+		return tanggal;
+	}
+
+	public void setTanggal(String tanggal) {
+		this.tanggal = tanggal;
 	}
 }

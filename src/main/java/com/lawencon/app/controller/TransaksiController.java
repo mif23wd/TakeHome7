@@ -8,21 +8,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lawencon.app.model.TransaksiTiket;
 import com.lawencon.app.service.AppService;
 
+@SuppressWarnings("rawtypes")
 @RestController
 public class TransaksiController extends BaseController{
 	
 	@Autowired
 	AppService appservice;
 
+	@SuppressWarnings("unchecked")
 	@PostMapping("/jpa/belitiket")
 	ResponseEntity<?> transaksiJpa(@RequestHeader("Authorization") String auth, @RequestBody String content){
 		try {
 			String[] userpass = authUser(auth);
-			TransaksiTiket tt = new ObjectMapper().readValue(content, TransaksiTiket.class);
+			TransaksiTiket tt = (TransaksiTiket) readValue(TransaksiTiket.class, content);
 			return new ResponseEntity<>(appservice.insertAndCetakStrukJpa(userpass[0], userpass[1], tt), HttpStatus.OK);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -31,11 +32,12 @@ public class TransaksiController extends BaseController{
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@PostMapping("/hibernate/belitiket")
 	ResponseEntity<?> transaksiHibernate(@RequestHeader("Authorization") String auth, @RequestBody String content){
 		try {
 			String[] userpass = authUser(auth);
-			TransaksiTiket tt = new ObjectMapper().readValue(content, TransaksiTiket.class);
+			TransaksiTiket tt = (TransaksiTiket) readValue(TransaksiTiket.class, content);
 			return new ResponseEntity<>(appservice.insertAndCetakStrukHibernate(userpass[0], userpass[1], tt), HttpStatus.OK);
 		} catch (Exception e) {
 			// TODO: handle exception

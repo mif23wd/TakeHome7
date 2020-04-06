@@ -27,7 +27,17 @@ public class Tiket {
 	@OneToOne
 	@JoinColumn(name = "jadwal_id")
 	private Jadwal jadwal;
-	
+	@OneToOne
+	@JoinColumn(name = "jk_id")
+	private JenisKendaraan jenisKendaraan;
+	public JenisKendaraan getJenisKendaraan() {
+		return jenisKendaraan;
+	}
+
+	public void setJenisKendaraan(JenisKendaraan jenisKendaraan) {
+		this.jenisKendaraan = jenisKendaraan;
+	}
+
 	public Jadwal getJadwal() {
 		return jadwal;
 	}
